@@ -2,7 +2,13 @@ import { convertObject } from './convertObject'
 import { resourceNameToUrn } from './resourceNameToUrn'
 
 export type NoValue = { noValue: boolean }
-export type CoioteLwM2MObject = Record<string, Record<string, string | NoValue>>
+export type EmptyObject = Record<string, Record<string, never>> // { prop: '' }
+export type NotProvidedValue = NoValue | EmptyObject | ''
+export type Prop = Record<string, string> // {"0": "ibasis.iot"}
+export type ProvidedValue = Prop | string
+export type Value = ProvidedValue | NotProvidedValue
+export type PropsObject = Record<string, Value>
+export type CoioteLwM2MObject = Record<string, PropsObject>
 export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
 
 // FIXME: use @nordicsemiconductor/lwm2m-types
