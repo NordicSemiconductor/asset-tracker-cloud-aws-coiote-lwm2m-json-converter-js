@@ -7,23 +7,23 @@ type Items = Record<string, Properties>
 export type PropSchema = Record<string, Items | Properties>
 
 /**
- * Return type of given prop
+ * Return type and id from given prop
  */
-export const getPropType = (
+export const getPropInfo = (
 	propName: string,
 	resourceType: 'array' | 'object',
 	schema: PropSchema,
-): undefined | string => {
+): undefined | Record<string, string> => {
 	const source =
 		resourceType === 'array' ? schema.items!.properties : schema.properties
 
 	const match = Object.entries(source!).find(
-		([, { title }]) => title === propName,
+		([id, { title }]) => title === propName,
 	)
 
 	if (match === undefined) return undefined
 
-	const [, { type }] = match
+	const [id, { type }] = match
 
-	return type
+	return { id, type }
 }
