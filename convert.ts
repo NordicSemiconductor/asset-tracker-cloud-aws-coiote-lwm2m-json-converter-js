@@ -35,5 +35,7 @@ export const convert = (input: CoioteLwM2M): LwM2MDocument => {
 		converted[urn] = convertedValue
 	}
 
+	// FIXME: Validate the result
+
 	return converted
 }
