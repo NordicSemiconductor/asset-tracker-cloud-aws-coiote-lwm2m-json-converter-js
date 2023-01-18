@@ -2,7 +2,7 @@
   "name": "@nordicsemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter",
   "description": "Convert the LwM2M JSON encoding written by AVSystem's Coiote AWS integration to nRF Asset Tracker's LwM2M JSON encoding.",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "prepare": "husky install"
   },
   "type": "module",
