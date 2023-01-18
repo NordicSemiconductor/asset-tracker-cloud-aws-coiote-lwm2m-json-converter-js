@@ -1,4 +1,4 @@
-import { convertValue } from './convertValue'
+import { convertObject } from './convertObject'
 import { resourceNameToUrn } from './resourceNameToUrn'
 
 export type NoValue = { noValue: boolean }
@@ -27,7 +27,7 @@ export const convert = (input: CoioteLwM2M): LwM2MDocument => {
 		if (urn === null) throw new Error(`Unknown resource name: ${resourceName}`)
 
 		// Convert Coiote's JSON representation to nRF Asset Tracker JSON representation
-		const convertedValue = convertValue(resourceName, value)
+		const convertedValue = convertObject(resourceName, value)
 		if (convertedValue === null)
 			throw new Error(
 				`Failed to convert ${resourceName} (${JSON.stringify(value)})`,

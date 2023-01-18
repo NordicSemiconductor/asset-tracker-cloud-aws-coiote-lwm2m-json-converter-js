@@ -1,5 +1,5 @@
 import type { CoioteLwM2MObject, LwM2MObject } from './convert'
-import { convertValueUsingSchema } from './convertValueUsingSchema'
+import { convertObjectUsingSchema } from './convertObjectUsingSchema'
 import LwM2MSchema from './node_modules/@nordicsemiconductor/lwm2m-types/LwM2MDocument.schema.json'
 import { resourceNameToUrn } from './resourceNameToUrn'
 
@@ -14,7 +14,7 @@ export const convertRegisteredObject = (
 		LwM2MSchema.properties[urn as keyof (typeof LwM2MSchema)['properties']]
 
 	if (objectSchema !== undefined)
-		return convertValueUsingSchema(objectSchema, value)
+		return convertObjectUsingSchema(objectSchema, value)
 
 	return null
 }

@@ -1,6 +1,6 @@
 import type { CoioteLwM2MObject, LwM2MObject } from './convert'
 
-export const convertValueUsingSchema = (
+export const convertObjectUsingSchema = (
 	schema: Record<string, any>,
 	value: CoioteLwM2MObject,
 ): LwM2MObject | null => {

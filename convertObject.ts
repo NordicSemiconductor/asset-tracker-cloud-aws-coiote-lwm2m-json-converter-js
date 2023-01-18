@@ -5,7 +5,7 @@ import {
 } from './convertConfiguration'
 import { convertRegisteredObject } from './convertRegisteredObject'
 
-export const convertValue = (
+export const convertObject = (
 	resourceName: string,
 	value: CoioteLwM2MObject,
 ): LwM2MObject | null => {
