@@ -1,5 +1,5 @@
 {
-  "name": "@nordicsemiconductor/asset-tracker-cloud-aws-coiote-shadow-converter",
+  "name": "@nordicsemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter",
   "description": "Convert the LwM2M JSON encoding written by AVSystem's Coiote AWS integration to nRF Asset Tracker's LwM2M JSON encoding.",
   "scripts": {
     "test": "jest",
@@ -8,12 +8,12 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-shadow-converter-js.git"
+    "url": "git+https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js.git"
   },
   "bugs": {
-    "url": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-shadow-converter-js/issues"
+    "url": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js/issues"
   },
-  "homepage": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-shadow-converter-js#readme",
+  "homepage": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js#readme",
   "keywords": [
     "nrf-asset-tracker",
     "lwm2m",
