@@ -1,7 +1,7 @@
 import { convertValue } from './convertValue'
 import { resourceNameToUrn } from './resourceNameToUrn'
 
-export type NoValue = { noValue: true }
+export type NoValue = { noValue: boolean }
 export type CoioteLwM2MObject = Record<string, Record<string, string | NoValue>>
 export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
 
