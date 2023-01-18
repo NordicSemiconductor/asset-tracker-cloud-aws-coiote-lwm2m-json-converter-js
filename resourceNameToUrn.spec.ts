@@ -11,6 +11,7 @@ describe('resourceNameToUrn()', () => {
 		(resourceName, expectedURN) =>
 			expect(resourceNameToUrn(resourceName)).toEqual(expectedURN),
 	)
-})
 
-// Location Assistance
+	it('should return null for unknown objects', () =>
+		expect(resourceNameToUrn('foo')).toBeNull())
+})
