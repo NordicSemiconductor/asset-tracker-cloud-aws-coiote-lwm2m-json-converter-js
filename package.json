@@ -19,7 +19,9 @@
     "lwm2m",
     "coiote"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@nordicsemiconductor/lwm2m-types": "1.1.0"
+  },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "11.0.2",
