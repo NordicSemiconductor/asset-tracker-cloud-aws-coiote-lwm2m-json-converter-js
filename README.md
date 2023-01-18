@@ -24,32 +24,28 @@ npm test
 
 ```json
 {
-  "state": {
-    "reported": {
-      "Temperature": {
-        "0": {
-          "Application Type": "",
-          "Fractional Timestamp": {
-            "noValue": true
-          },
-          "Max Measured Value": "23.51",
-          "Max Range Value": "85.0",
-          "Measurement Quality Indicator": {
-            "noValue": true
-          },
-          "Measurement Quality Level": {
-            "noValue": true
-          },
-          "Min Measured Value": "23.51",
-          "Min Range Value": "-40.0",
-          "Reset Min and Max Measured Values": {
-            "noValue": true
-          },
-          "Sensor Units": "Celsius degrees",
-          "Sensor Value": "24.57",
-          "Timestamp": "2022-10-07T13:33:22Z"
-        }
-      }
+  "Temperature": {
+    "0": {
+      "Application Type": "",
+      "Fractional Timestamp": {
+        "noValue": true
+      },
+      "Max Measured Value": "23.51",
+      "Max Range Value": "85.0",
+      "Measurement Quality Indicator": {
+        "noValue": true
+      },
+      "Measurement Quality Level": {
+        "noValue": true
+      },
+      "Min Measured Value": "23.51",
+      "Min Range Value": "-40.0",
+      "Reset Min and Max Measured Values": {
+        "noValue": true
+      },
+      "Sensor Units": "Celsius degrees",
+      "Sensor Value": "24.57",
+      "Timestamp": "2022-10-07T13:33:22Z"
     }
   }
 }
