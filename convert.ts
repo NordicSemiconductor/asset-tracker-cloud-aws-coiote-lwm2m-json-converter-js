@@ -7,8 +7,8 @@ export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
 
 // FIXME: use @nordicsemiconductor/lwm2m-types
 export type LwM2MObject =
-	| Record<string, number | string>
-	| Array<Record<string, number | string>>
+	| Record<string, number | string | boolean>
+	| Array<Record<string, number | string | boolean>>
 export type LwM2MDocument = Record<string, LwM2MObject>
 
 /**

@@ -83,4 +83,35 @@ describe('convertValue()', () => {
 		(resourceName, input, expectedOutput) =>
 			expect(convertValue(resourceName, input)).toMatchObject(expectedOutput),
 	)
+
+	describe('object conversion for unregistered objects', () => {
+		it('should convert Configuration', () =>
+			expect(
+				convertValue('Configuration', {
+					'0': {
+						'Accelerometer activity threshold': '10.0',
+						'Accelerometer inactivity threshold': '5.0',
+						'Accelerometer inactivity timeout': '60.0',
+						'Active wait time': '120',
+						'GNSS enable': 'true',
+						'GNSS timeout': '30',
+						'Movement resolution': '120',
+						'Movement timeout': '3600',
+						'Neighbor cell measurements enable': 'true',
+						'Passive mode': 'false',
+					},
+				}),
+			).toMatchObject({
+				'1': 10.0,
+				'2': 5.0,
+				'3': 60.0,
+				'4': 120,
+				'5': true,
+				'6': 30,
+				'7': 120,
+				'8': 3600,
+				'9': true,
+				'10': false,
+			}))
+	})
 })

@@ -1,4 +1,8 @@
 import type { CoioteLwM2MObject, LwM2MObject } from './convert'
+import {
+	CoioteLwM2MConfigurationObject,
+	convertConfiguration,
+} from './convertConfiguration'
 import { convertRegisteredObject } from './convertRegisteredObject'
 
 export const convertValue = (
@@ -9,9 +13,9 @@ export const convertValue = (
 	const fromLwM2MRegistry = convertRegisteredObject(resourceName, value)
 	if (fromLwM2MRegistry !== null) return fromLwM2MRegistry
 
-	// More alternatives to follow ...
-	// Is it config?
-	// Is it Location Assistance?
+	// Is it asset_tracker_v2 configuration?
+	if (resourceName === 'Configuration')
+		return convertConfiguration(value as CoioteLwM2MConfigurationObject)
 
 	// We could not convert it.
 	return null
