@@ -1,5 +1,5 @@
+import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { ConfigurationURN } from './convertConfiguration'
-import LwM2MSchema from './node_modules/@nordicsemiconductor/lwm2m-types/LwM2MDocument.schema.json'
 
 /**
  * Returns the LwM2M URN used by nRF Asset Tracker for the resource name used by Coiote.
@@ -13,7 +13,7 @@ export const resourceNameToUrn = (resourceName: string): string | null => {
 		// FIXME: Access Coiote Dialects, check LwM2M object ID, LwM2M version, Object version
 		return ConfigurationURN
 	}
-	const match = Object.entries(LwM2MSchema.properties).find(
+	const match = Object.entries(LwM2MDocumentSchema.properties).find(
 		([, { title }]) => title === resourceName,
 	)
 	if (match === undefined) return null

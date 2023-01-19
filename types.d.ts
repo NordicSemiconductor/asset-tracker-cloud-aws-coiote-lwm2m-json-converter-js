@@ -12,7 +12,8 @@ import type {
 } from './convertConfiguration'
 
 export type NoValue = { noValue: boolean }
-export type CoioteLwM2MObject = Record<string, Record<string, string | NoValue>>
+export type CoioteLwM2MObjectProperties = Record<string, string | NoValue>
+export type CoioteLwM2MObject = Record<string, CoioteLwM2MObjectProperties>
 export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
 
 export type AssetTrackerLwM2MObject = Record<string, number | string | boolean>

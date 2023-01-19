@@ -20,7 +20,7 @@
     "coiote"
   ],
   "dependencies": {
-    "@nordicsemiconductor/lwm2m-types": "2.0.3"
+    "@nordicsemiconductor/lwm2m-types": "2.0.4"
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
