@@ -10,6 +10,7 @@ export type Value = ProvidedValue | NotProvidedValue
 export type PropsObject = Record<string, Value>
 export type CoioteLwM2MObject = Record<string, PropsObject>
 export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
+export type LwM2MPRops = Record<string, number | string | string[] | boolean>
 
 // FIXME: use @nordicsemiconductor/lwm2m-types
 export type LwM2MObject =
@@ -25,7 +26,7 @@ export type LwM2MDocument = Record<string, LwM2MObject>
  * @throws Exception if input cannot be converted
  */
 export const convert = (input: CoioteLwM2M): LwM2MDocument => {
-	const converted: LwM2MDocument = {}
+	const converted: any = {} // FIXME Should be LwM2MDocument
 
 	for (const [resourceName, value] of Object.entries(input)) {
 		// Map the Coiote resource name to nRF Asset Tracker Lw2M2M URN
