@@ -1,4 +1,16 @@
-import type { LwM2MObject } from './convert'
+export const ConfigurationURN = '50009@1.2'
+export type AssetTrackerLwM2MConfigurationObject = Readonly<{
+	'1': number
+	'2': number
+	'3': number
+	'4': number
+	'5': boolean
+	'6': number
+	'7': number
+	'8': number
+	'9': boolean
+	'10': boolean
+}>
 
 export type CoioteLwM2MConfigurationObject = {
 	'0': {
@@ -21,7 +33,7 @@ export type CoioteLwM2MConfigurationObject = {
  */
 export const convertConfiguration = (
 	value: CoioteLwM2MConfigurationObject,
-): LwM2MObject | null => ({
+): AssetTrackerLwM2MConfigurationObject | null => ({
 	'1': 10.0,
 	'2': 5.0,
 	'3': 60.0,

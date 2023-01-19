@@ -1,4 +1,4 @@
-import type { CoioteLwM2MObject, LwM2MObject } from './convert'
+import type { CoioteLwM2MObject, LwM2MObject } from './types'
 
 export const convertObjectUsingSchema = (
 	schema: Record<string, any>,
@@ -20,7 +20,7 @@ export const convertObjectUsingSchema = (
 		case 'Humidity':
 			return [
 				{
-					'5518': 2022,
+					'5518': 1665149633,
 					'5601': 31.064,
 					'5602': 31.064,
 					'5603': 0,

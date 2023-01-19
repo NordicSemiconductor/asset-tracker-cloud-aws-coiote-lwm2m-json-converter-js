@@ -1,15 +1,12 @@
+import { validate } from '@nordicsemiconductor/lwm2m-types'
 import { convertObject } from './convertObject'
 import { resourceNameToUrn } from './resourceNameToUrn'
-
-export type NoValue = { noValue: boolean }
-export type CoioteLwM2MObject = Record<string, Record<string, string | NoValue>>
-export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
-
-// FIXME: use @nordicsemiconductor/lwm2m-types
-export type LwM2MObject =
-	| Record<string, number | string | boolean>
-	| Array<Record<string, number | string | boolean>>
-export type LwM2MDocument = Record<string, LwM2MObject>
+import type {
+	AssetTrackerLwM2MDocument,
+	AssetTrackerLwM2MShadowDocument,
+	CoioteLwM2M,
+} from './types'
+import { validateCustomObjects } from './validateCustomObjects'
 
 /**
  * Convert a Coiote LwM2M JSON encoding the nRF Asset Tracker's LwM2M JSON encoding.
@@ -18,9 +15,10 @@ export type LwM2MDocument = Record<string, LwM2MObject>
  *
  * @throws Exception if input cannot be converted
  */
-export const convert = (input: CoioteLwM2M): LwM2MDocument => {
-	const converted: LwM2MDocument = {}
-
+export const convert = (
+	input: CoioteLwM2M,
+): AssetTrackerLwM2MShadowDocument => {
+	const converted: AssetTrackerLwM2MDocument = {}
 	for (const [resourceName, value] of Object.entries(input)) {
 		// Map the Coiote resource name to nRF Asset Tracker Lw2M2M URN
 		const urn = resourceNameToUrn(resourceName)
@@ -35,7 +33,25 @@ export const convert = (input: CoioteLwM2M): LwM2MDocument => {
 		converted[urn] = convertedValue
 	}
 
-	// FIXME: Validate the result
+	// Validate built-in types
+	const validatedRegisteredObjects = validate(converted)
+	if ('errors' in validatedRegisteredObjects)
+		throw new Error(
+			`Invalid LwM2M object definition received: ${JSON.stringify(
+				validatedRegisteredObjects.errors,
+			)}`,
+		)
 
-	return converted
+	// Validate the custom types
+	const validatedCustomObjects = validateCustomObjects(
+		validatedRegisteredObjects.value,
+	)
+	if ('error' in validatedCustomObjects)
+		throw new Error(
+			`Invalid custom LwM2M object definition received: ${JSON.stringify(
+				validatedCustomObjects.error,
+			)}`,
+		)
+
+	return validatedCustomObjects.value
 }

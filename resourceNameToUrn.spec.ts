@@ -18,7 +18,7 @@ describe('resourceNameToUrn()', () => {
 		['Temperature', '3303:1.1'], // Temperature_3303_urn
 		// asset_tracker_v2 configuration, not registered in LwM2M object registry
 		// FIXME: Access Coiote Dialects, check LwM2M object ID, LwM2M version, Object version
-		['Configuration', '666@1.2'],
+		['Configuration', '50009@1.2'],
 		// Can be ignored
 		['LwM2M Server', '1:1.2@1.2'], // LwM2MServer_1_urn
 		// Ignored, because not needed in nRF Asset Tracker

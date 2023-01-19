@@ -1,7 +1,7 @@
-import type { CoioteLwM2MObject, LwM2MObject } from './convert'
 import { convertObjectUsingSchema } from './convertObjectUsingSchema'
 import LwM2MSchema from './node_modules/@nordicsemiconductor/lwm2m-types/LwM2MDocument.schema.json'
 import { resourceNameToUrn } from './resourceNameToUrn'
+import type { CoioteLwM2MObject, LwM2MObject } from './types'
 
 export const convertRegisteredObject = (
 	resourceName: string,

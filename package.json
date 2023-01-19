@@ -20,7 +20,7 @@
     "coiote"
   ],
   "dependencies": {
-    "@nordicsemiconductor/lwm2m-types": "2.0.0"
+    "@nordicsemiconductor/lwm2m-types": "2.0.3"
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
@@ -40,7 +40,13 @@
         "@swc/jest"
       ]
     },
-    "testRegex": ".+\\.spec\\.ts$"
+    "testRegex": ".+\\.spec\\.ts$",
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ]
   },
   "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc",
   "lint-staged": {

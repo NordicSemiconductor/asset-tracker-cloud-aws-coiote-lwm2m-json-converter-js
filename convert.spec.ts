@@ -52,6 +52,20 @@ describe('convert()', () => {
 						Timestamp: '2022-10-07T13:33:22Z',
 					},
 				},
+				Configuration: {
+					'0': {
+						'Accelerometer activity threshold': '10.0',
+						'Accelerometer inactivity threshold': '5.0',
+						'Accelerometer inactivity timeout': '60.0',
+						'Active wait time': '120',
+						'GNSS enable': 'true',
+						'GNSS timeout': '30',
+						'Movement resolution': '120',
+						'Movement timeout': '3600',
+						'Neighbor cell measurements enable': 'true',
+						'Passive mode': 'false',
+					},
+				},
 			}),
 		).toMatchObject({
 			'3303:1.1': [
@@ -67,7 +81,7 @@ describe('convert()', () => {
 			],
 			'3304:1.1': [
 				{
-					'5518': 2022,
+					'5518': 1665149633,
 					'5601': 31.064,
 					'5602': 31.064,
 					'5603': 0,
@@ -76,6 +90,18 @@ describe('convert()', () => {
 					'5701': '%',
 				},
 			],
+			'50009@1.2': {
+				'1': 10.0,
+				'2': 5.0,
+				'3': 60.0,
+				'4': 120,
+				'5': true,
+				'6': 30,
+				'7': 120,
+				'8': 3600,
+				'9': true,
+				'10': false,
+			},
 		}))
 
 	it('should throw an exception if the input cannot be converted', () =>
