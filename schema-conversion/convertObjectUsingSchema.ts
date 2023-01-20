@@ -5,6 +5,20 @@ import { convertToObject } from './convertToObject'
 export type Schema = {
 	type: 'array' | 'object'
 	title: string
+	properties: Record<
+		string,
+		| {
+				title: string
+				type: 'number' | 'integer' | 'boolean' | 'string'
+		  }
+		| {
+				title: string
+				type: 'array'
+				items: {
+					type: 'number' | 'integer' | 'boolean' | 'string'
+				}
+		  }
+	>
 }
 
 export const convertObjectUsingSchema = (

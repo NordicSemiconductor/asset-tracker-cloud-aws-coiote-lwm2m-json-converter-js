@@ -12,11 +12,23 @@ import type {
 } from './convertConfiguration'
 
 export type NoValue = { noValue: boolean }
-export type CoioteLwM2MObjectProperties = Record<string, string | NoValue>
+export type CoioteLwM2MObjectPropertyValue =
+	| string
+	| NoValue
+	| Record<string, any>
+export type CoioteLwM2MObjectProperties = Record<
+	string,
+	CoioteLwM2MObjectPropertyValue
+>
 export type CoioteLwM2MObject = Record<string, CoioteLwM2MObjectProperties>
 export type CoioteLwM2M = Record<string, CoioteLwM2MObject>
 
-export type AssetTrackerLwM2MObject = Record<string, number | string | boolean>
+export type AssetTrackerLwM2MObjectPropertyValue = number | string | boolean
+export type AssetTrackerLwM2MObject = Record<
+	string,
+	| AssetTrackerLwM2MObjectPropertyValue
+	| Array<AssetTrackerLwM2MObjectPropertyValue>
+>
 /**
  * Describes the general shape of the nRF Asset Tracker LwM2M JSON notation.
  *
@@ -52,9 +64,11 @@ export type AssetTrackerLwM2MDocument = Record<
 	Readonly<AssetTrackerLwM2MObject | Array<AssetTrackerLwM2MObject>>
 >
 
+type LwM2MObjectValues = number | string | boolean
 export type LwM2MObject =
-	| Record<string, number | string | boolean>
-	| Array<Record<string, number | string | boolean>>
+	| Record<string, LwM2MObjectValues | Array<LwM2MObjectValues>>
+	| Array<Record<string, LwM2MObjectValues | Array<LwM2MObjectValues>>>
+
 export type AssetTrackerLwM2MShadowDocument = {
 	[Temperature_3303_urn]?: Temperature_3303
 	[Humidity_3304_urn]?: Humidity_3304
