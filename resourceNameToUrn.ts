@@ -1,5 +1,5 @@
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
-import { ConfigurationURN } from './convertConfiguration'
+import { ConfigurationURN } from './custom-conversion/convertConfiguration'
 
 /**
  * Returns the LwM2M URN used by nRF Asset Tracker for the resource name used by Coiote.
