@@ -1,7 +1,7 @@
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
-import { convertObjectUsingSchema } from './convertObjectUsingSchema'
+import { convertToArray } from './convertToArray'
 
-describe('convertObjectUsingSchema()', () => {
+describe('convertToArray()', () => {
 	it.each([
 		[
 			{
@@ -44,27 +44,6 @@ describe('convertObjectUsingSchema()', () => {
 		[
 			{
 				'0': {
-					'Firmware Update Protocol Support': {},
-					'Firmware Update Delivery Method': '2',
-					Package: {
-						noValue: true,
-					},
-					'Package URI': '',
-					PkgName: '',
-					PkgVersion: '',
-					State: '0',
-					Update: {
-						noValue: true,
-					},
-					'Update Result': '1',
-				},
-			},
-			'5:1.1@1.1',
-			{ '3': 0, '5': 1, '9': 2 },
-		],
-		[
-			{
-				'0': {
 					physCellId: '247',
 					ECGI: '0',
 					arfcnEUTRA: '6400',
@@ -100,7 +79,7 @@ describe('convertObjectUsingSchema()', () => {
 		'should convert object definition %j for object %s using json schema to %j',
 		(objectDefinition, urn, expected) =>
 			expect(
-				convertObjectUsingSchema(
+				convertToArray(
 					LwM2MDocumentSchema.properties[urn],
 					objectDefinition as any,
 				),
