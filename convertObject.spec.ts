@@ -66,7 +66,7 @@ describe('convertObject()', () => {
 				'7': 120,
 				'8': 3600,
 				'9': true,
-				'10': false,
+				'10': true,
 			}))
 	})
 })

@@ -36,10 +36,11 @@ export const convertConfiguration = (
 	'2': parseFloat(value['0']['Accelerometer inactivity threshold']),
 	'3': parseFloat(value['0']['Accelerometer inactivity timeout']),
 	'4': parseInt(value['0']['Active wait time'], 10),
+	// Is now called location timeout
 	'5': value['0']['GNSS enable'] === 'true',
 	'6': parseInt(value['0']['GNSS timeout'], 10),
 	'7': parseInt(value['0']['Movement resolution'], 10),
 	'8': parseInt(value['0']['Movement timeout'], 10),
 	'9': value['0']['Neighbor cell measurements enable'] === 'true',
-	'10': value['0']['Passive mode'] === 'true',
+	'10': !(value['0']['Passive mode'] === 'true'),
 })

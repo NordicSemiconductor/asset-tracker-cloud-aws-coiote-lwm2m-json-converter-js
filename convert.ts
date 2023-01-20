@@ -1,17 +1,19 @@
 import { validate } from '@nordicsemiconductor/lwm2m-types'
 import { convertObject } from './convertObject'
+import { validateCustomObjects } from './custom-conversion/validateCustomObjects'
 import { resourceNameToUrn } from './resourceNameToUrn'
 import type {
 	AssetTrackerLwM2MDocument,
 	AssetTrackerLwM2MShadowDocument,
 	CoioteLwM2M,
 } from './types'
-import { validateCustomObjects } from './validateCustomObjects'
 
 /**
  * Convert a Coiote LwM2M JSON encoding the nRF Asset Tracker's LwM2M JSON encoding.
  *
  * @see https://github.com/NordicSemiconductor/lwm2m-types-js
+ *
+ * TODO: remove invalid object definitions instead of rejecting the entire document.
  *
  * @throws Exception if input cannot be converted
  */
@@ -43,15 +45,5 @@ export const convert = (
 		)
 
 	// Validate the custom types
-	const validatedCustomObjects = validateCustomObjects(
-		validatedRegisteredObjects.value,
-	)
-	if ('error' in validatedCustomObjects)
-		throw new Error(
-			`Invalid custom LwM2M object definition received: ${JSON.stringify(
-				validatedCustomObjects.error,
-			)}`,
-		)
-
-	return validatedCustomObjects.value
+	return validateCustomObjects(validatedRegisteredObjects.value)
 }
