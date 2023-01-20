@@ -69,7 +69,7 @@ describe('convertObjectUsingSchema()', () => {
 					ECGI: '0',
 					arfcnEUTRA: '6400',
 					'rsrq-Result': '-96',
-					'rsrp-Result ': '-12',
+					'rsrp-Result': '-12',
 					'ue-RxTxTimeDiff': '0',
 				},
 				'1': {
@@ -77,7 +77,7 @@ describe('convertObjectUsingSchema()', () => {
 					ECGI: '0',
 					arfcnEUTRA: '300',
 					'rsrq-Result': '-115',
-					'rsrp-Result ': '-12',
+					'rsrp-Result': '-12',
 					'ue-RxTxTimeDiff': '23',
 				},
 				'2': {
@@ -85,7 +85,7 @@ describe('convertObjectUsingSchema()', () => {
 					ECGI: '0',
 					arfcnEUTRA: '300',
 					'rsrq-Result': '-119',
-					'rsrp-Result ': '-16',
+					'rsrp-Result': '-16',
 					'ue-RxTxTimeDiff': '23',
 				},
 			},
