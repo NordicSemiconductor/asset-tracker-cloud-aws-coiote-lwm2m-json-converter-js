@@ -114,4 +114,25 @@ describe('convert()', () => {
 				},
 			}),
 		).toThrow())
+
+	// @see https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues/13
+	it('should convert object which contains the minimum allowed timestamp value as prop', () => {
+		expect(
+			convert({
+				Location: {
+					'0': {
+						Altitude: '0.0',
+						Latitude: '0.0',
+						Longitude: '0.0',
+						Radius: '0.0',
+						Speed: '0.0',
+						Timestamp: '1970-01-01T00:00:00Z', // minimum allowed value
+						Velocity: '',
+					},
+				},
+			}),
+		).toMatchObject({
+			'6': { '0': 0, '1': 0, '2': 0, '3': 0, '4': '', '5': 0, '6': 0 },
+		})
+	})
 })
