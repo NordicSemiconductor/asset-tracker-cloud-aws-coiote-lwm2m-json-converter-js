@@ -32,6 +32,14 @@ export const convertResource = (
 
 	return convertValue(value as string, resource.type)
 }
+
+/**
+ * Cast value to expected type
+ *
+ * Boolean case return number type because in LwM2M Boolean is an 8 bit
+ * unsigned integer with the value 0 for False and the value 1 for True
+ * @see https://www.openmobilealliance.org/release/LightweightM2M/V1_1_1-20190617-A/OMA-TS-LightweightM2M_Core-V1_1_1-20190617-A.pdf Pag 106 Table: C.-1 Data Types
+ */
 export const convertValue = (
 	value: string,
 	type: 'integer' | 'number' | 'boolean' | 'string' | 'timestamp',
@@ -44,7 +52,7 @@ export const convertValue = (
 		case 'number':
 			return parseFloat(value)
 		case 'boolean':
-			return value === '1' ? true : false // value === 'true' || value === '1'
+			return value === 'true' || value === '1' ? 1 : 0
 		case 'string':
 			return value
 		default:
