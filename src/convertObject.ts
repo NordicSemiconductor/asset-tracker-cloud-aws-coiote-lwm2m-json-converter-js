@@ -1,9 +1,9 @@
 import {
 	CoioteLwM2MConfigurationObject,
 	convertConfiguration,
-} from './custom-conversion/convertConfiguration'
-import { convertRegisteredObject } from './schema-conversion/convertRegisteredObject'
-import type { CoioteLwM2MObject, LwM2MObject } from './types'
+} from './custom-conversion/convertConfiguration.js'
+import { convertRegisteredObject } from './schema-conversion/convertRegisteredObject.js'
+import type { CoioteLwM2MObject, LwM2MObject } from './types.js'
 
 export const convertObject = (
 	resourceName: string,

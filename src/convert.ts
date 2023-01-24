@@ -1,12 +1,12 @@
 import { validate } from '@nordicsemiconductor/lwm2m-types'
-import { convertObject } from './convertObject'
-import { validateCustomObjects } from './custom-conversion/validateCustomObjects'
-import { resourceNameToUrn } from './resourceNameToUrn'
+import { convertObject } from './convertObject.js'
+import { validateCustomObjects } from './custom-conversion/validateCustomObjects.js'
+import { resourceNameToUrn } from './resourceNameToUrn.js'
 import type {
 	AssetTrackerLwM2MDocument,
 	AssetTrackerLwM2MShadowDocument,
 	CoioteLwM2M,
-} from './types'
+} from './types.js'
 
 /**
  * Convert a Coiote LwM2M JSON encoding the nRF Asset Tracker's LwM2M JSON encoding.

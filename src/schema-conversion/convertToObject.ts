@@ -3,9 +3,9 @@ import type {
 	CoioteLwM2MObject,
 	CoioteLwM2MObjectProperties,
 } from '../types'
-import type { ObjectSchema } from './convertObjectUsingSchema'
-import { convertResource } from './convertResource'
-import { resourceNameToId } from './resourceNameToId'
+import type { ObjectSchema } from './convertObjectUsingSchema.js'
+import { convertResource } from './convertResource.js'
+import { resourceNameToId } from './resourceNameToId.js'
 
 export const convertToObject = (
 	schema: ObjectSchema,

@@ -9,7 +9,7 @@ import type {
 import type {
 	AssetTrackerLwM2MConfigurationObject,
 	ConfigurationURN,
-} from './custom-conversion/convertConfiguration'
+} from './custom-conversion/convertConfiguration.js'
 
 export type NoValue = { noValue: boolean }
 export type CoioteLwM2MObjectPropertyValue =

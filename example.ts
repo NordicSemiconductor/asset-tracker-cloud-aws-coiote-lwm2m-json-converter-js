@@ -1,5 +1,5 @@
+import { convert } from '@nordicsemiconductor/coiote-aws-converter-js'
 import assert from 'node:assert/strict'
-import { convert } from './convert'
 
 const converted = convert({
 	Temperature: {
@@ -42,3 +42,5 @@ assert.deepEqual(converted, {
 		},
 	],
 })
+
+console.log(converted)

@@ -1,6 +1,6 @@
-import type { AssetTrackerLwM2MShadowDocument } from '../types'
-import { ConfigurationURN } from './convertConfiguration'
-import { validateConfig } from './validateConfig'
+import type { AssetTrackerLwM2MShadowDocument } from '../types.js'
+import { ConfigurationURN } from './convertConfiguration.js'
+import { validateConfig } from './validateConfig.js'
 
 /**
  * Validate LwM2M object definitions that are not defined in the LwM2M object registry:

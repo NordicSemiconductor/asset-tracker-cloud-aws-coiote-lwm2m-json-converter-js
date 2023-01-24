@@ -1,19 +1,27 @@
 {
-  "name": "@nordicsemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter",
+  "name": "@nordicsemiconductor/coiote-aws-converter-js",
   "description": "Convert the LwM2M JSON encoding written by AVSystem's Coiote AWS integration to nRF Asset Tracker's LwM2M JSON encoding.",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublish": "npx swc -d dist ./src"
   },
   "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./export.js",
+      "node": "./export.js"
+    }
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js.git"
+    "url": "git+https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js.git"
   },
   "bugs": {
-    "url": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js/issues"
+    "url": "https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues"
   },
-  "homepage": "https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-coiote-lwm2m-json-converter-js#readme",
+  "homepage": "https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js#readme",
   "keywords": [
     "nrf-asset-tracker",
     "lwm2m",
@@ -26,6 +34,7 @@
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "11.0.2",
+    "@swc/cli": "0.1.59",
     "@swc/jest": "0.2.24",
     "@types/jest": "29.2.6",
     "@typescript-eslint/eslint-plugin": "5.49.0",
@@ -62,5 +71,24 @@
   "engines": {
     "node": ">=18",
     "npm": ">=9"
-  }
+  },
+  "release": {
+    "branches": [
+      "saga"
+    ],
+    "remoteTags": true
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "export.js",
+    "index.d.ts",
+    "example.ts",
+    "dist",
+    "src",
+    "package-lock.json",
+    "LICENSE",
+    "README.md"
+  ]
 }

@@ -1,6 +1,6 @@
 import type { CoioteLwM2MObject, LwM2MObject } from '../types'
-import { convertToArray } from './convertToArray'
-import { convertToObject } from './convertToObject'
+import { convertToArray } from './convertToArray.js'
+import { convertToObject } from './convertToObject.js'
 
 export type Schema = (ObjectSchema | ArraySchema) & {
 	title: string

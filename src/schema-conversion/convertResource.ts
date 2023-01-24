@@ -1,8 +1,8 @@
 import type {
 	AssetTrackerLwM2MObjectPropertyValue,
 	CoioteLwM2MObjectPropertyValue,
-} from '../types'
-import type { ObjectSchema } from './convertObjectUsingSchema'
+} from '../types.js'
+import type { ObjectSchema } from './convertObjectUsingSchema.js'
 
 export const convertResource = (
 	schema: ObjectSchema,

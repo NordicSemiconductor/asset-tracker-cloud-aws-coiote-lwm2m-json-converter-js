@@ -1,5 +1,5 @@
 import Ajv from 'ajv'
-import type { AssetTrackerLwM2MConfigurationObject } from './convertConfiguration'
+import type { AssetTrackerLwM2MConfigurationObject } from './convertConfiguration.js'
 
 const configSchema = {
 	$schema: 'http://json-schema.org/draft-07/schema#',

@@ -2,10 +2,10 @@ import type {
 	AssetTrackerLwM2MObject,
 	CoioteLwM2MObject,
 	CoioteLwM2MObjectProperties,
-} from '../types'
-import type { ArraySchema } from './convertObjectUsingSchema'
-import { convertResource } from './convertResource'
-import { resourceNameToId } from './resourceNameToId'
+} from '../types.js'
+import type { ArraySchema } from './convertObjectUsingSchema.js'
+import { convertResource } from './convertResource.js'
+import { resourceNameToId } from './resourceNameToId.js'
 
 export const convertToArray = (
 	schema: ArraySchema,
