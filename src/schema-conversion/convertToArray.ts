@@ -12,10 +12,13 @@ export const convertToArray = (
 	arrayDefinition: CoioteLwM2MObject,
 ): Array<AssetTrackerLwM2MObject> | null =>
 	Object.values(arrayDefinition)
-		.map((objectDefinition) => convertObject(schema, objectDefinition))
+		.map((objectDefinition) => convertElementOfArray(schema, objectDefinition))
 		.filter((v) => v !== null) as Array<AssetTrackerLwM2MObject>
 
-const convertObject = (
+/**
+ * Given the schema and the value, convert to LwM2M
+ */
+export const convertElementOfArray = (
 	schema: ArraySchema,
 	properties: CoioteLwM2MObjectProperties,
 ): AssetTrackerLwM2MObject | null => {

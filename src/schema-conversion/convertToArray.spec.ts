@@ -1,5 +1,5 @@
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
-import { convertToArray } from './convertToArray'
+import { convertElementOfArray, convertToArray } from './convertToArray'
 
 describe('convertToArray()', () => {
 	it.each([
@@ -158,5 +158,32 @@ describe('convertToArray()', () => {
 					objectDefinition as any,
 				),
 			).toMatchObject(expected),
+	)
+})
+
+describe('convertElementOfArray()', () => {
+	it.each([
+		[
+			'10256',
+			{
+				physCellId: '247',
+				ECGI: '0',
+				arfcnEUTRA: '6400',
+				'rsrp-Result': '-96',
+				'rsrq-Result': '-12',
+				'ue-RxTxTimeDiff': '0',
+			},
+			{ '0': 247, '1': 0, '2': 6400, '3': -96, '4': -12, '5': 0 },
+		],
+	])(
+		'%s: Should convert element of resource %j to %j',
+		(urn, value, expected) => {
+			expect(
+				convertElementOfArray(
+					LwM2MDocumentSchema.properties[urn as any],
+					value as any,
+				),
+			).toMatchObject(expected)
+		},
 	)
 })
