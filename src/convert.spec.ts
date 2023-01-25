@@ -116,7 +116,7 @@ describe('convert()', () => {
 		).toThrow())
 
 	// @see https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues/13
-	it('should convert object which contains the minimum allowed timestamp value as prop', () => {
+	it('should convert object that contains the minimum allowed timestamp value as prop', () => {
 		expect(
 			convert({
 				Location: {
