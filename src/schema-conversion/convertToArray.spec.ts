@@ -75,6 +75,80 @@ describe('convertToArray()', () => {
 				{ '0': 195, '1': 0, '2': 300, '3': -16, '4': -119, '5': 23 },
 			],
 		],
+		[
+			{
+				'0': {
+					'APN Link': {
+						noValue: true,
+					},
+					Binding: 'U',
+					'Bootstrap on Registration Failure': {
+						noValue: true,
+					},
+					'Bootstrap-Request Trigger': {
+						noValue: true,
+					},
+					'Communication Retry Count': {
+						noValue: true,
+					},
+					'Communication Retry Timer': {
+						noValue: true,
+					},
+					'Communication Sequence Delay Timer': {
+						noValue: true,
+					},
+					'Communication Sequence Retry Count': {
+						noValue: true,
+					},
+					'Default Maximum Period': '0',
+					'Default Minimum Period': '0',
+					Disable: {
+						noValue: true,
+					},
+					'Disable Timeout': '86400',
+					'Initial Registration Delay Timer': {
+						noValue: true,
+					},
+					'Last Bootstrapped': {
+						noValue: true,
+					},
+					Lifetime: '43200',
+					'Mute Send': 'false',
+					'Notification Storing When Disabled or Offline': 'false',
+					'Preferred Transport': '',
+					'Registration Failure Block': {
+						noValue: true,
+					},
+					'Registration Priority Order': {
+						noValue: true,
+					},
+					'Registration Update Trigger': {
+						noValue: true,
+					},
+					'Short Server ID': '101',
+					'TLS-DTLS Alert Code': {
+						noValue: true,
+					},
+					Trigger: {
+						noValue: true,
+					},
+				},
+			},
+			'1:1.2@1.2',
+			[
+				{
+					'0': 101,
+					'1': 43200,
+					'2': 0,
+					'22': '',
+					'23': 0,
+					'3': 0,
+					'5': 86400,
+					'6': 0,
+					'7': 'U',
+				},
+			],
+		],
 	])(
 		'should convert object definition %j for object %s using json schema to %j',
 		(objectDefinition, urn, expected) =>
