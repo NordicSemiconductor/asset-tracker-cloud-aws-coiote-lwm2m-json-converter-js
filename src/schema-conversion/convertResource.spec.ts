@@ -2,10 +2,10 @@ import { convertValue } from './convertResource'
 
 describe('convertValue', () => {
 	it.each([
-		['true', 'boolean', 1],
-		['false', 'boolean', 0],
-		['1', 'boolean', 1],
-		['0', 'boolean', 0],
+		['true', 'boolean', true],
+		['false', 'boolean', false],
+		['false', 'integer', 0], // special integer/boolean case
+		['true', 'integer', 1], // special integer/boolean case
 		['hello world', 'string', 'hello world'],
 		['10', 'number', 10],
 		['100', 'integer', 100],
