@@ -34,7 +34,7 @@
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "11.0.2",
-    "@swc/cli": "0.1.59",
+    "@swc/cli": "0.1.60",
     "@swc/jest": "0.2.24",
     "@types/jest": "29.4.0",
     "@typescript-eslint/eslint-plugin": "5.49.0",
