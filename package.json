@@ -36,7 +36,7 @@
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "16.0.18",
     "@swc/cli": "0.1.62",
     "@swc/jest": "0.2.29",
-    "@types/jest": "29.5.4",
+    "@types/jest": "29.5.5",
     "@typescript-eslint/eslint-plugin": "6.7.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
