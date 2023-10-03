@@ -1,4 +1,4 @@
-import { convert } from './convert'
+import { convert } from './convert.js'
 
 describe('convert()', () => {
 	it(`should convert Coiote's LwM2M JSON encoding to nRF Asset Tracker LwM2M JSON encoding`, () =>

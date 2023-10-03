@@ -1,4 +1,4 @@
-import { convertResource, convertValue } from './convertResource'
+import { convertResource, convertValue } from './convertResource.js'
 
 describe('convertResource', () => {
 	it.each([

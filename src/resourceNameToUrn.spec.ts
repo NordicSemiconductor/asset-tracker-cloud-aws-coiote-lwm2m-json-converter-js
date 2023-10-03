@@ -1,4 +1,4 @@
-import { resourceNameToUrn } from './resourceNameToUrn'
+import { resourceNameToUrn } from './resourceNameToUrn.js'
 
 describe('resourceNameToUrn()', () => {
 	it.each([

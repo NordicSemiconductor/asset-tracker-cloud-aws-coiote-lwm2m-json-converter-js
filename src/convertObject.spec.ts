@@ -1,4 +1,4 @@
-import { convertObject } from './convertObject'
+import { convertObject } from './convertObject.js'
 
 describe('convertObject()', () => {
 	it(`should convert known LwM2M object`, () =>

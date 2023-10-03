@@ -1,4 +1,4 @@
-import { validateCustomObjects } from './validateCustomObjects'
+import { validateCustomObjects } from './validateCustomObjects.js'
 
 describe('validateCustomObjects()', () => {
 	describe('should remove invalid custom objects', () => {

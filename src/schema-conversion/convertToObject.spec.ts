@@ -1,5 +1,5 @@
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
-import { convertToObject } from './convertToObject'
+import { convertToObject } from './convertToObject.js'
 
 describe('convertToObject()', () => {
 	it.each([

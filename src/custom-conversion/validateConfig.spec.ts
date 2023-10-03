@@ -1,4 +1,4 @@
-import { validateConfig } from './validateConfig'
+import { validateConfig } from './validateConfig.js'
 
 describe('validateConfig()', () => {
 	it('mark invalid config', () =>
