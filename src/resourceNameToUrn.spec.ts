@@ -1,7 +1,9 @@
 import { resourceNameToUrn } from './resourceNameToUrn.js'
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
-describe('resourceNameToUrn()', () => {
-	it.each([
+void describe('resourceNameToUrn', () => {
+	for (const [resourceName, expectedURN] of [
 		['Connectivity Monitoring', '4:1.3@1.1'], // ConnectivityMonitoring_4_urn
 		['Humidity', '3304:1.1'], // Humidity_3304_urn
 		// Special case, because of conflict
@@ -23,12 +25,12 @@ describe('resourceNameToUrn()', () => {
 		['LwM2M Server', '1:1.2@1.2'], // LwM2MServer_1_urn
 		// Ignored, because not needed in nRF Asset Tracker
 		['Location Assistance', null],
-	])(
-		`should convert the resource name "%s" to the URN "%s"`,
-		(resourceName, expectedURN) =>
-			expect(resourceNameToUrn(resourceName)).toEqual(expectedURN),
-	)
+	] as [string, unknown][]) {
+		void it(`should convert the resource name "${resourceName}" to the URN "${expectedURN}"`, () => {
+			assert.strictEqual(resourceNameToUrn(resourceName), expectedURN)
+		})
+	}
 
-	it('should return null for unknown objects', () =>
-		expect(resourceNameToUrn('foo')).toBeNull())
+	void it('should return null for unknown objects'),
+		() => assert.strictEqual(resourceNameToUrn('foo'), null)
 })
