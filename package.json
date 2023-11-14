@@ -28,7 +28,7 @@
     "coiote"
   ],
   "dependencies": {
-    "@nordicsemiconductor/lwm2m-types": "2.6.1",
+    "@nordicsemiconductor/lwm2m-types": "2.7.0",
     "ajv": "8.12.0"
   },
   "devDependencies": {
