@@ -1,8 +1,11 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { convertObjectUsingSchema } from './convertObjectUsingSchema.js'
+import type { CoioteLwM2MObject } from 'src/types.js'
 
-describe('convertObjectUsingSchema()', () => {
-	it.each([
+void describe('convertObjectUsingSchema()', () => {
+	for (const [objectDefinition, urn, expected] of [
 		[
 			{
 				'0': {
@@ -38,6 +41,7 @@ describe('convertObjectUsingSchema()', () => {
 					'5604': 85,
 					'5700': 24.57,
 					'5701': 'Celsius degrees',
+					'5750': '',
 				},
 			],
 		],
@@ -59,8 +63,8 @@ describe('convertObjectUsingSchema()', () => {
 					'Update Result': '1',
 				},
 			},
-			'5:1.2@1.1',
-			{ '3': 0, '5': 1, '9': 2 },
+			'5:1.1@1.1',
+			{ '1': '', '3': 0, '5': 1, '6': '', '7': '', '9': 2 },
 		],
 		[
 			{
@@ -96,14 +100,15 @@ describe('convertObjectUsingSchema()', () => {
 				{ '0': 195, '1': 0, '2': 300, '3': -16, '4': -119, '5': 23 },
 			],
 		],
-	])(
-		'should convert object definition %j for object %s using json schema to %j',
-		(objectDefinition, urn, expected) =>
-			expect(
+	] as [CoioteLwM2MObject, string, unknown][]) {
+		void it(`should convert object definition of object '${urn}' using json schema`, () => {
+			assert.deepStrictEqual(
 				convertObjectUsingSchema(
 					LwM2MDocumentSchema.properties[urn],
-					objectDefinition as any,
+					objectDefinition,
 				),
-			).toMatchObject(expected),
-	)
+				expected,
+			)
+		})
+	}
 })
