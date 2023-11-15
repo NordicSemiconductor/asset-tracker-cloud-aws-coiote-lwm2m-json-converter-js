@@ -7,7 +7,7 @@ import type {
 	CoioteLwM2MObjectProperties,
 } from 'src/types.js'
 
-describe('convertToArray()', () => {
+void describe('convertToArray()', () => {
 	for (const [objectDefinition, urn, expected] of [
 		[
 			{
@@ -44,7 +44,7 @@ describe('convertToArray()', () => {
 					'5604': 85,
 					'5700': 24.57,
 					'5701': 'Celsius degrees',
-					'5750': ''
+					'5750': '',
 				},
 			],
 		],
