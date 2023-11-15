@@ -1,8 +1,11 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { convertToObject } from './convertToObject.js'
+import type { CoioteLwM2MObject } from 'src/types.js'
 
-describe('convertToObject()', () => {
-	it.each([
+void describe('convertToObject()', () => {
+	for (const [objectDefinition, urn, expected] of [
 		[
 			{
 				'0': {
@@ -55,12 +58,12 @@ describe('convertToObject()', () => {
 				'7': ['ibasis.iot'],
 			},
 		],
-	])(`should convert %j of %s to %j`, (objectDefinition, urn, expected) =>
-		expect(
-			convertToObject(
-				LwM2MDocumentSchema.properties[urn as any],
-				objectDefinition,
-			),
-		).toMatchObject(expected),
-	)
+	] as [CoioteLwM2MObject, string, unknown][]) {
+		void it(`should convert ${objectDefinition} of ${urn} to ${expected}`, () => {
+			assert.deepEqual(
+				convertToObject(LwM2MDocumentSchema.properties[urn], objectDefinition),
+				expected,
+			)
+		})
+	}
 })
