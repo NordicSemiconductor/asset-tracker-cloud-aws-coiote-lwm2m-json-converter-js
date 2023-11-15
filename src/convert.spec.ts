@@ -110,16 +110,15 @@ void describe('convert()', () => {
 		)
 	})
 
-	
 	void it('should throw an exception if the input cannot be converted', () => {
 		const error = () =>
-		convert({
-			foo: {
-				'0': {
-					'Application Type': '',
+			convert({
+				foo: {
+					'0': {
+						'Application Type': '',
+					},
 				},
-			},
-		})
+			})
 		assert.throws(error)
 	})
 
@@ -144,5 +143,4 @@ void describe('convert()', () => {
 			},
 		)
 	})
-	
 })
