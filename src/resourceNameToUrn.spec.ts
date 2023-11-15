@@ -11,7 +11,7 @@ describe('resourceNameToUrn()', () => {
 		// FIXME: Provided by Coiote, check LwM2M and Object version
 		['Device', '3:1.2@1.1'], // Device_3_urn
 		// FIXME: Provided by Coiote, check LwM2M and Object version
-		['Firmware Update', '5:1.1@1.1'], // FirmwareUpdate_5_urn
+		['Firmware Update', '5:1.2@1.1'], // FirmwareUpdate_5_urn
 
 		['Pressure', '3323:1.1'], // Pressure_3323_urn
 		['Push button', '3347:1.1'], // Pushbutton_3347_urn
