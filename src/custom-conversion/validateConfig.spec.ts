@@ -1,10 +1,14 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 import { validateConfig } from './validateConfig.js'
 
-describe('validateConfig()', () => {
-	it('mark invalid config', () =>
-		expect(
+void describe('validateConfig()', () => {
+	void it('mark invalid config', () => {
+		assert.strictEqual(
 			validateConfig({
 				'42': '666',
 			} as any),
-		).toEqual(false))
+			false,
+		)
+	})
 })
