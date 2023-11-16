@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import assert from 'node:assert'
+import assert from 'node:assert/strict'
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { convertToObject } from './convertToObject.js'
 import type { CoioteLwM2MObject } from 'src/types.js'

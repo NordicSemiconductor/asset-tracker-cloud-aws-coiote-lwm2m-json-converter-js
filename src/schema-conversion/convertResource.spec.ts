@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import assert from 'node:assert'
+import assert from 'node:assert/strict'
 import { convertResource, convertValue } from './convertResource.js'
 import type { CoioteLwM2MObjectPropertyValue } from 'src/types.js'
 
@@ -201,7 +201,7 @@ void describe('convertResource', () => {
 		['3', 0, 0],
 	] as [string, CoioteLwM2MObjectPropertyValue, unknown][]) {
 		void it(`should convert prop '${propId}' from object (LwM2MServer). Value: '${value}' Expected: '${expected}'`, () => {
-			assert.deepStrictEqual(
+			assert.deepEqual(
 				convertResource(LwM2MServer as any, propId, value), // TODO: use real schema definition from lwm2m type lib
 				expected,
 			)
@@ -226,7 +226,7 @@ void describe('convertValue', () => {
 		unknown,
 	][]) {
 		void it(`should convert value '${value}' which is type '${type}' to '${expected}'`, () => {
-			assert.deepStrictEqual(convertValue(value, type), expected)
+			assert.deepEqual(convertValue(value, type), expected)
 		})
 	}
 })

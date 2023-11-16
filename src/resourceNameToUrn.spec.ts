@@ -1,6 +1,6 @@
 import { resourceNameToUrn } from './resourceNameToUrn.js'
 import { describe, it } from 'node:test'
-import assert from 'node:assert'
+import assert from 'node:assert/strict'
 
 void describe('resourceNameToUrn', () => {
 	for (const [resourceName, expectedURN] of [

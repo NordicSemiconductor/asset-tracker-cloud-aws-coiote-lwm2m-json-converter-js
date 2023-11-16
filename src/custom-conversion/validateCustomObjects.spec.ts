@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import assert from 'node:assert'
+import assert from 'node:assert/strict'
 import { validateCustomObjects } from './validateCustomObjects.js'
 
 void describe('validateCustomObjects()', () => {
@@ -11,7 +11,7 @@ void describe('validateCustomObjects()', () => {
 				},
 			}
 			const output = validateCustomObjects(input as any)
-			assert.deepStrictEqual(output['50009@1.2'], undefined)
+			assert.deepEqual(output['50009@1.2'], undefined)
 		})
 	})
 })

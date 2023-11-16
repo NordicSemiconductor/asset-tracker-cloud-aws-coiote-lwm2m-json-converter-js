@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import assert from 'node:assert'
+import assert from 'node:assert/strict'
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { convertObjectUsingSchema } from './convertObjectUsingSchema.js'
 import type { CoioteLwM2MObject } from 'src/types.js'
@@ -102,7 +102,7 @@ void describe('convertObjectUsingSchema()', () => {
 		],
 	] as [CoioteLwM2MObject, string, unknown][]) {
 		void it(`should convert object definition of object '${urn}' using json schema`, () => {
-			assert.deepStrictEqual(
+			assert.deepEqual(
 				convertObjectUsingSchema(
 					LwM2MDocumentSchema.properties[urn],
 					objectDefinition,
