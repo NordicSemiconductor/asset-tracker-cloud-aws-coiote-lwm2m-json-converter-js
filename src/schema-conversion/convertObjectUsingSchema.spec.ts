@@ -101,13 +101,12 @@ void describe('convertObjectUsingSchema()', () => {
 			],
 		],
 	] as [CoioteLwM2MObject, string, unknown][])
-		void it(`should convert object definition of object '${urn}' using json schema`, () => {
+		void it(`should convert object definition of object '${urn}' using json schema`, () =>
 			assert.deepEqual(
 				convertObjectUsingSchema(
 					LwM2MDocumentSchema.properties[urn],
 					objectDefinition,
 				),
 				expected,
-			)
-		})
+			))
 })
