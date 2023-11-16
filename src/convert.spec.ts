@@ -111,15 +111,15 @@ void describe('convert()', () => {
 	})
 
 	void it('should throw an exception if the input cannot be converted', () => {
-		const error = () =>
+		assert.throws(() =>
 			convert({
 				foo: {
 					'0': {
 						'Application Type': '',
 					},
 				},
-			})
-		assert.throws(error)
+			}),
+		)
 	})
 
 	// @see https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues/13
