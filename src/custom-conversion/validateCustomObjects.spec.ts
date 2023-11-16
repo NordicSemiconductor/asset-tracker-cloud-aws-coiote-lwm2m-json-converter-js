@@ -1,15 +1,15 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
 import { validateCustomObjects } from './validateCustomObjects.js'
 
-describe('validateCustomObjects()', () => {
-	describe('should remove invalid custom objects', () => {
-		test('remove invalid config', () => {
+void describe('validateCustomObjects()', () =>
+	void describe('should remove invalid custom objects', () =>
+		void it('remove invalid config', () => {
 			const input = {
 				'50009@1.2': {
 					'42': '666',
 				},
 			}
 			const output = validateCustomObjects(input as any)
-			expect(output['50009@1.2']).toBeUndefined()
-		})
-	})
-})
+			assert.equal(output['50009@1.2'], undefined)
+		})))

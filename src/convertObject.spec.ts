@@ -1,8 +1,10 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
 import { convertObject } from './convertObject.js'
 
-describe('convertObject()', () => {
-	it(`should convert known LwM2M object`, () =>
-		expect(
+void describe('convertObject()', () => {
+	void it(`should convert known LwM2M object`, () =>
+		assert.deepEqual(
 			convertObject('Humidity', {
 				'0': {
 					'Application Type': '',
@@ -27,21 +29,23 @@ describe('convertObject()', () => {
 					Timestamp: '2022-10-07T13:33:22Z',
 				},
 			}),
-		).toMatchObject([
-			{
-				'5518': 1665149602,
-				'5601': 31.064,
-				'5602': 31.064,
-				'5603': 0,
-				'5604': 100,
-				'5700': 28.927,
-				'5701': '%',
-			},
-		]))
+			[
+				{
+					'5518': 1665149602,
+					'5601': 31.064,
+					'5602': 31.064,
+					'5603': 0,
+					'5604': 100,
+					'5700': 28.927,
+					'5701': '%',
+					'5750': '',
+				},
+			],
+		))
 
-	describe('object conversion for unregistered objects', () => {
-		it('should convert Configuration', () =>
-			expect(
+	void describe('object conversion for unregistered objects', () =>
+		void it('should convert Configuration', () =>
+			assert.deepEqual(
 				convertObject('Configuration', {
 					'0': {
 						'Accelerometer activity threshold': '10.0',
@@ -56,17 +60,17 @@ describe('convertObject()', () => {
 						'Passive mode': 'false',
 					},
 				}),
-			).toMatchObject({
-				'1': 10.0,
-				'2': 5.0,
-				'3': 60.0,
-				'4': 120,
-				'5': true,
-				'6': 30,
-				'7': 120,
-				'8': 3600,
-				'9': true,
-				'10': true,
-			}))
-	})
+				{
+					'1': 10.0,
+					'2': 5.0,
+					'3': 60.0,
+					'4': 120,
+					'5': true,
+					'6': 30,
+					'7': 120,
+					'8': 3600,
+					'9': true,
+					'10': true,
+				},
+			)))
 })

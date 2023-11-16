@@ -1,8 +1,10 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
 import { convert } from './convert.js'
 
-describe('convert()', () => {
-	it(`should convert Coiote's LwM2M JSON encoding to nRF Asset Tracker LwM2M JSON encoding`, () =>
-		expect(
+void describe('convert()', () => {
+	void it(`should convert Coiote's LwM2M JSON encoding to nRF Asset Tracker LwM2M JSON encoding`, () =>
+		assert.deepEqual(
 			convert({
 				Temperature: {
 					'0': {
@@ -67,45 +69,48 @@ describe('convert()', () => {
 					},
 				},
 			}),
-		).toMatchObject({
-			'3303:1.1': [
-				{
-					'5518': 1665149602,
-					'5601': 23.51,
-					'5602': 23.51,
-					'5603': -40,
-					'5604': 85,
-					'5700': 24.57,
-					'5701': 'Celsius degrees',
+			{
+				'3303:1.1': [
+					{
+						'5518': 1665149602,
+						'5601': 23.51,
+						'5602': 23.51,
+						'5603': -40,
+						'5604': 85,
+						'5700': 24.57,
+						'5701': 'Celsius degrees',
+						'5750': '',
+					},
+				],
+				'3304:1.1': [
+					{
+						'5518': 1665149602,
+						'5601': 31.064,
+						'5602': 31.064,
+						'5603': 0,
+						'5604': 100,
+						'5700': 28.927,
+						'5701': '%',
+						'5750': '',
+					},
+				],
+				'50009@1.2': {
+					'1': 10.0,
+					'2': 5.0,
+					'3': 60.0,
+					'4': 120,
+					'5': true,
+					'6': 30,
+					'7': 120,
+					'8': 3600,
+					'9': true,
+					'10': true,
 				},
-			],
-			'3304:1.1': [
-				{
-					'5518': 1665149602,
-					'5601': 31.064,
-					'5602': 31.064,
-					'5603': 0,
-					'5604': 100,
-					'5700': 28.927,
-					'5701': '%',
-				},
-			],
-			'50009@1.2': {
-				'1': 10.0,
-				'2': 5.0,
-				'3': 60.0,
-				'4': 120,
-				'5': true,
-				'6': 30,
-				'7': 120,
-				'8': 3600,
-				'9': true,
-				'10': true,
 			},
-		}))
+		))
 
-	it('should throw an exception if the input cannot be converted', () =>
-		expect(() =>
+	void it('should throw an exception if the input cannot be converted', () =>
+		assert.throws(() =>
 			convert({
 				foo: {
 					'0': {
@@ -113,11 +118,11 @@ describe('convert()', () => {
 					},
 				},
 			}),
-		).toThrow())
+		))
 
 	// @see https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues/13
-	it('should convert object that contains the minimum allowed timestamp value as prop', () => {
-		expect(
+	void it('should convert object that contains the minimum allowed timestamp value as prop', () =>
+		assert.deepEqual(
 			convert({
 				Location: {
 					'0': {
@@ -131,8 +136,8 @@ describe('convert()', () => {
 					},
 				},
 			}),
-		).toMatchObject({
-			'6': { '0': 0, '1': 0, '2': 0, '3': 0, '4': '', '5': 0, '6': 0 },
-		})
-	})
+			{
+				'6': { '0': 0, '1': 0, '2': 0, '3': 0, '4': '', '5': 0, '6': 0 },
+			},
+		))
 })

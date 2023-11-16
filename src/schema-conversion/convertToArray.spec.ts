@@ -1,8 +1,14 @@
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
 import { LwM2MDocumentSchema } from '@nordicsemiconductor/lwm2m-types'
 import { convertElementOfArray, convertToArray } from './convertToArray.js'
+import type {
+	CoioteLwM2MObject,
+	CoioteLwM2MObjectProperties,
+} from 'src/types.js'
 
-describe('convertToArray()', () => {
-	it.each([
+void describe('convertToArray()', () => {
+	for (const [objectDefinition, urn, expected] of [
 		[
 			{
 				'0': {
@@ -38,6 +44,7 @@ describe('convertToArray()', () => {
 					'5604': 85,
 					'5700': 24.57,
 					'5701': 'Celsius degrees',
+					'5750': '',
 				},
 			],
 		],
@@ -149,20 +156,17 @@ describe('convertToArray()', () => {
 				},
 			],
 		],
-	])(
-		'should convert object definition %j for object %s using json schema to %j',
-		(objectDefinition, urn, expected) =>
-			expect(
-				convertToArray(
-					LwM2MDocumentSchema.properties[urn],
-					objectDefinition as any,
-				),
-			).toMatchObject(expected),
-	)
+	] as [CoioteLwM2MObject, string, unknown][]) {
+		void it(`should convert object definition of ${urn} to expected format`, () =>
+			assert.deepEqual(
+				convertToArray(LwM2MDocumentSchema.properties[urn], objectDefinition),
+				expected,
+			))
+	}
 })
 
-describe('convertElementOfArray()', () => {
-	it.each([
+void describe('convertElementOfArray()', () => {
+	for (const [urn, value, expected] of [
 		[
 			'10256',
 			{
@@ -175,15 +179,10 @@ describe('convertElementOfArray()', () => {
 			},
 			{ '0': 247, '1': 0, '2': 6400, '3': -96, '4': -12, '5': 0 },
 		],
-	])(
-		'%s: Should convert element of resource %j to %j',
-		(urn, value, expected) => {
-			expect(
-				convertElementOfArray(
-					LwM2MDocumentSchema.properties[urn as any],
-					value as any,
-				),
-			).toMatchObject(expected)
-		},
-	)
+	] as [string, CoioteLwM2MObjectProperties, unknown][])
+		void it(`should convert object ${urn} to expected format`, () =>
+			assert.deepEqual(
+				convertElementOfArray(LwM2MDocumentSchema.properties[urn], value),
+				expected,
+			))
 })
