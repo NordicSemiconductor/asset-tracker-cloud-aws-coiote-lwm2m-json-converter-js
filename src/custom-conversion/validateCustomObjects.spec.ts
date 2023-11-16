@@ -11,7 +11,7 @@ void describe('validateCustomObjects()', () => {
 				},
 			}
 			const output = validateCustomObjects(input as any)
-			assert.deepEqual(output['50009@1.2'], undefined)
+			assert.equal(output['50009@1.2'], undefined)
 		})
 	})
 })
