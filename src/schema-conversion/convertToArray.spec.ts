@@ -157,12 +157,11 @@ void describe('convertToArray()', () => {
 			],
 		],
 	] as [CoioteLwM2MObject, string, unknown][]) {
-		void it(`should convert object definition of ${urn} to expected format`, () => {
+		void it(`should convert object definition of ${urn} to expected format`, () =>
 			assert.deepEqual(
 				convertToArray(LwM2MDocumentSchema.properties[urn], objectDefinition),
 				expected,
-			)
-		})
+			))
 	}
 })
 
@@ -180,12 +179,10 @@ void describe('convertElementOfArray()', () => {
 			},
 			{ '0': 247, '1': 0, '2': 6400, '3': -96, '4': -12, '5': 0 },
 		],
-	] as [string, CoioteLwM2MObjectProperties, unknown][]) {
-		void it(`should convert object ${urn} to expected format`, () => {
+	] as [string, CoioteLwM2MObjectProperties, unknown][])
+		void it(`should convert object ${urn} to expected format`, () =>
 			assert.deepEqual(
 				convertElementOfArray(LwM2MDocumentSchema.properties[urn], value),
 				expected,
-			)
-		})
-	}
+			))
 })

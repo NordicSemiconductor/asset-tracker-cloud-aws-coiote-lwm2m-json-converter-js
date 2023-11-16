@@ -75,11 +75,10 @@ void describe('convertToObject()', () => {
 			},
 		],
 	] as [CoioteLwM2MObject, string, unknown][]) {
-		void it(`should convert object ${urn} to expected format`, () => {
+		void it(`should convert object ${urn} to expected format`, () =>
 			assert.deepEqual(
 				convertToObject(LwM2MDocumentSchema.properties[urn], objectDefinition),
 				expected,
-			)
-		})
+			))
 	}
 })

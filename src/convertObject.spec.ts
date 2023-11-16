@@ -43,7 +43,7 @@ void describe('convertObject()', () => {
 			],
 		))
 
-	void describe('object conversion for unregistered objects', () => {
+	void describe('object conversion for unregistered objects', () =>
 		void it('should convert Configuration', () =>
 			assert.deepEqual(
 				convertObject('Configuration', {
@@ -72,6 +72,5 @@ void describe('convertObject()', () => {
 					'9': true,
 					'10': true,
 				},
-			))
-	})
+			)))
 })

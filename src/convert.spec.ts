@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { convert } from './convert.js'
 
 void describe('convert()', () => {
-	void it(`should convert Coiote's LwM2M JSON encoding to nRF Asset Tracker LwM2M JSON encoding`, () => {
+	void it(`should convert Coiote's LwM2M JSON encoding to nRF Asset Tracker LwM2M JSON encoding`, () =>
 		assert.deepEqual(
 			convert({
 				Temperature: {
@@ -107,10 +107,9 @@ void describe('convert()', () => {
 					'10': true,
 				},
 			},
-		)
-	})
+		))
 
-	void it('should throw an exception if the input cannot be converted', () => {
+	void it('should throw an exception if the input cannot be converted', () =>
 		assert.throws(() =>
 			convert({
 				foo: {
@@ -119,11 +118,10 @@ void describe('convert()', () => {
 					},
 				},
 			}),
-		)
-	})
+		))
 
 	// @see https://github.com/NordicSemiconductor/asset-tracker-cloud-coiote-aws-converter-js/issues/13
-	void it('should convert object that contains the minimum allowed timestamp value as prop', () => {
+	void it('should convert object that contains the minimum allowed timestamp value as prop', () =>
 		assert.deepEqual(
 			convert({
 				Location: {
@@ -141,6 +139,5 @@ void describe('convert()', () => {
 			{
 				'6': { '0': 0, '1': 0, '2': 0, '3': 0, '4': '', '5': 0, '6': 0 },
 			},
-		)
-	})
+		))
 })

@@ -100,7 +100,7 @@ void describe('convertObjectUsingSchema()', () => {
 				{ '0': 195, '1': 0, '2': 300, '3': -16, '4': -119, '5': 23 },
 			],
 		],
-	] as [CoioteLwM2MObject, string, unknown][]) {
+	] as [CoioteLwM2MObject, string, unknown][])
 		void it(`should convert object definition of object '${urn}' using json schema`, () => {
 			assert.deepEqual(
 				convertObjectUsingSchema(
@@ -110,5 +110,4 @@ void describe('convertObjectUsingSchema()', () => {
 				expected,
 			)
 		})
-	}
 })

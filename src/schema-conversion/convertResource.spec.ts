@@ -199,14 +199,13 @@ void describe('convertResource', () => {
 		['6', 'false', 0],
 		['12', { noValue: true }, null],
 		['3', 0, 0],
-	] as [string, CoioteLwM2MObjectPropertyValue, unknown][]) {
+	] as [string, CoioteLwM2MObjectPropertyValue, unknown][])
 		void it(`should convert prop '${propId}' from object (LwM2MServer). Value: '${value}' Expected: '${expected}'`, () => {
 			assert.deepEqual(
 				convertResource(LwM2MServer as any, propId, value), // TODO: use real schema definition from lwm2m type lib
 				expected,
 			)
 		})
-	}
 })
 
 void describe('convertValue', () => {
@@ -224,8 +223,7 @@ void describe('convertValue', () => {
 		string,
 		'integer' | 'number' | 'boolean' | 'string' | 'timestamp',
 		unknown,
-	][]) {
+	][])
 		void it(`should convert value '${value}' which is type '${type}' to '${expected}'`, () =>
 			assert.equal(convertValue(value, type), expected))
-	}
 })
