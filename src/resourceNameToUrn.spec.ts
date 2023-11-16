@@ -25,11 +25,9 @@ void describe('resourceNameToUrn', () => {
 		['LwM2M Server', '1:1.2@1.2'], // LwM2MServer_1_urn
 		// Ignored, because not needed in nRF Asset Tracker
 		['Location Assistance', null],
-	] as [string, unknown][]) {
-		void it(`should convert the resource name "${resourceName}" to the URN "${expectedURN}"`, () => {
-			assert.strictEqual(resourceNameToUrn(resourceName), expectedURN)
-		})
-	}
+	] as [string, unknown][])
+		void it(`should convert the resource name "${resourceName}" to the URN "${expectedURN}"`, () =>
+			assert.strictEqual(resourceNameToUrn(resourceName), expectedURN))
 
 	void it('should return null for unknown objects'),
 		() => assert.equal(resourceNameToUrn('foo'), null)
