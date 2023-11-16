@@ -32,5 +32,5 @@ void describe('resourceNameToUrn', () => {
 	}
 
 	void it('should return null for unknown objects'),
-		() => assert.strictEqual(resourceNameToUrn('foo'), null)
+		() => assert.equal(resourceNameToUrn('foo'), null)
 })
