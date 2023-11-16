@@ -2,7 +2,7 @@ import { resourceNameToUrn } from './resourceNameToUrn.js'
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 
-void describe('resourceNameToUrn', () => {
+void describe('resourceNameToUrn()', () => {
 	for (const [resourceName, expectedURN] of [
 		['Connectivity Monitoring', '4:1.3@1.1'], // ConnectivityMonitoring_4_urn
 		['Humidity', '3304:1.1'], // Humidity_3304_urn

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { convertResource, convertValue } from './convertResource.js'
 import type { CoioteLwM2MObjectPropertyValue } from 'src/types.js'
 
-void describe('convertResource', () => {
+void describe('convertResource()', () => {
 	const LwM2MServer = {
 		type: 'object',
 		$id: 'https://github.com/OpenMobileAlliance/lwm2m-registry/raw/prod/1.xml',
