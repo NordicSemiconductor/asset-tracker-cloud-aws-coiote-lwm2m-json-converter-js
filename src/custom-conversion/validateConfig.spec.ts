@@ -4,7 +4,7 @@ import { validateConfig } from './validateConfig.js'
 
 void describe('validateConfig()', () => {
 	void it('mark invalid config', () => {
-		assert.strictEqual(
+		assert.equal(
 			validateConfig({
 				'42': '666',
 			} as any),
