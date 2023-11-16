@@ -225,6 +225,7 @@ void describe('convertValue', () => {
 		'integer' | 'number' | 'boolean' | 'string' | 'timestamp',
 		unknown,
 	][]) {
-		void it(`should convert value '${value}' which is type '${type}' to '${expected}'`, () => assert.equal(convertValue(value, type), expected))
+		void it(`should convert value '${value}' which is type '${type}' to '${expected}'`, () =>
+			assert.equal(convertValue(value, type), expected))
 	}
 })
