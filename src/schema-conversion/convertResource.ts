@@ -20,17 +20,23 @@ export const convertResource = (
 	const resource = schema.properties[resourceId]
 	if (resource === undefined) return null
 
-	if (resource.type === 'array') {
-		const itemType = resource.items.type
-		return Object.values(value as string[])
-			.map((v) => convertValue(v, itemType))
-			.filter((v) => v !== null) as Array<AssetTrackerLwM2MObjectPropertyValue>
+	switch (resource.type) {
+		case 'array': {
+			const itemType = resource.items.type
+			return Object.values(value as string[])
+				.map((v) => convertValue(v, itemType))
+				.filter(
+					(v) => v !== null,
+				) as Array<AssetTrackerLwM2MObjectPropertyValue>
+		}
+		case 'integer': {
+			if (resource?.unixTimestamp === true)
+				return convertValue(value as string, 'timestamp')
+			else return convertValue(value as string, resource.type)
+		}
+		default:
+			return convertValue(value as string, resource.type)
 	}
-
-	if (resource?.unixTimestamp === true && resource.type === 'integer')
-		return convertValue(value as string, 'timestamp')
-
-	return convertValue(value as string, resource.type)
 }
 
 /**
