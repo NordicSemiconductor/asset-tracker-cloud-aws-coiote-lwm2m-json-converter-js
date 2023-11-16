@@ -181,9 +181,11 @@ void describe('convertElementOfArray()', () => {
 			{ '0': 247, '1': 0, '2': 6400, '3': -96, '4': -12, '5': 0 },
 		],
 	] as [string, CoioteLwM2MObjectProperties, unknown][]) {
-		assert.deepEqual(
-			convertElementOfArray(LwM2MDocumentSchema.properties[urn], value),
-			expected,
-		)
+		void it(`should convert object ${urn} to expected format`, () => {
+			assert.deepEqual(
+				convertElementOfArray(LwM2MDocumentSchema.properties[urn], value),
+				expected,
+			)
+		})
 	}
 })
