@@ -3,7 +3,7 @@
   "description": "Convert the LwM2M JSON encoding written by AVSystem's Coiote AWS integration to nRF Asset Tracker's LwM2M JSON encoding.",
   "scripts": {
     "test": "find ./ -type f -name \\*.spec.ts -not -path './node_modules/*' | xargs npx tsx --test --test-reporter spec",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublish": "npx swc -d dist ./src"
   },
   "type": "module",
@@ -41,7 +41,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-unicorn": "50.0.1",
-    "husky": "8.0.3",
+    "husky": "9.0.7",
     "prettier": "3.2.4",
     "tsx": "4.7.0",
     "typescript": "5.3.3"
