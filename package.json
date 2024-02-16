@@ -46,7 +46,7 @@
     "tsx": "4.7.1",
     "typescript": "5.3.3"
   },
-  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc",
+  "prettier": "@bifravst/prettier-config",
   "lint-staged": {
     "*.{md,json,yaml,yml}": [
       "prettier --write"
